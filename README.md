@@ -20,6 +20,8 @@ python experiment.py --config myconfiguration --split 0
 
 The code is written in [Keras] version 2.1.6 with [tensorflow] 1.4.0.
 
+A tensorflow implementation is uploaded in https://github.com/GabrieleValvano/SDNet.
+
 ## Citation
 
 If you use this code for your research, please cite our paper:
