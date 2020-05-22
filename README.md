@@ -18,7 +18,7 @@ To run an experiment, execute `experiment.py`, passing the configuration filenam
 python experiment.py --config myconfiguration --split 0
 ```
 
-The code is written in [Keras] version 2.1.6 with [tensorflow] 1.4.0.
+The code is written in [Keras] version 2.1.6 with [tensorflow] 1.4.0 and experiments were run with a Titan-X GPU.
 
 A tensorflow implementation is uploaded in https://github.com/GabrieleValvano/SDNet.
 
