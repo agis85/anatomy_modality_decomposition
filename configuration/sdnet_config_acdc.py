@@ -8,7 +8,7 @@ params = {
     'seed': 1,
     'folder': 'experiment_sdnet_acdc',
     'data_len': 0,
-    'epochs': 1,
+    'epochs': 500,
     'batch_size': 4,
     'pool_size': 50,
     'split': 0,
@@ -16,14 +16,13 @@ params = {
     'dataset_name': 'acdc',
     'test_dataset': 'acdc',
     'input_shape': loader.ACDCLoader().input_shape,
-    'image_downsample': 4,
+    'image_downsample': 1,
     'modality': 'MR',
     'prefix': 'norm',                         # Prefix used to load a dataset, e.g. norm_baseline for data_by_dog
-    # 'filter_by_scanner': '',              # Specific for ACDC dataset. Set to 1.5 or 3 to filter corresponding volumes.
     'augment': True,
     'model': 'sdnet.SDNet',
     'executor': 'sdnet_executor.SDNetExecutor',
-    'l_mix': 0.06,
+    'l_mix': 1,
     'ul_mix': 1,
     'rounding': 'encoder',
     'num_mask_channels': 8,
@@ -39,8 +38,8 @@ params = {
 }
 
 d_mask_params = discriminator_config.params
-d_mask_params['downsample_blocks'] = 1
-d_mask_params['filters'] = 4
+d_mask_params['downsample_blocks'] = 4
+d_mask_params['filters'] = 64
 d_mask_params['lr'] = 0.0001
 d_mask_params['name'] = 'D_Mask'
 d_mask_params['decay'] = 0.0001
@@ -48,8 +47,8 @@ d_mask_params['output'] = '1D'
 
 anatomy_encoder_params = unet_config_acdc.params
 anatomy_encoder_params['normalise'] = 'batch'
-anatomy_encoder_params['downsample'] = 1
-anatomy_encoder_params['filters'] = 4
+anatomy_encoder_params['downsample'] = 4
+anatomy_encoder_params['filters'] = 64
 anatomy_encoder_params['out_channels'] = params['num_mask_channels']
 
 
